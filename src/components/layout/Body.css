@@ -1,0 +1,138 @@
+.homeWebMainSection > img {
+    width: 100%;
+}
+.homeWebMainSection > h1{
+    color: #ffffff;
+    position: absolute;
+    top: 60%;
+    left: 43%;
+}
+
+.homeWebButtonsMen {
+    color: black;
+    position: absolute;
+    top: 70%;
+    left: 60%;
+    text-align: center;
+    line-height: 30px;
+    width: 150px;
+    height: 30px;
+    background-color: white;
+    border: white 1px solid;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.homeWebButtonsWomen {
+    color: black;
+    position: absolute;
+    top: 70%;
+    left: 40%;
+    text-align: center;
+    line-height: 30px;
+    width: 150px;
+    height: 30px;
+    background-color: white;
+    border: white 1px solid;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.homeWebButtons a:hover {
+    background-color: transparent;
+    transform: scaleX(1.1);
+    transition: all.2s ease;
+    color: white;
+}
+
+.homeWebSecondSection {
+    float: left;
+    width: 100%;
+}
+
+#homewebleftimg {
+    float: left;
+    width: 40%;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#homewebrightimg {
+    float: right;
+    width: 40%;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+#homewebleftH1 {
+    position: absolute;
+    margin-top: 47.7%;
+    margin-left: 40px;
+    text-transform: uppercase;
+    font-size: 25px;
+}
+
+#homewebrightH1 {
+    position: absolute;
+    margin-top: 46.7%;
+    margin-left: 60%;
+    text-transform: uppercase;
+    font-size: 25px;
+}
+
+#homewebleftButton {
+    position: absolute;
+    margin-top: 51%;
+    margin-left: 40px;
+    left: 0;
+    text-align: center;
+    line-height: 30px;
+    width: 150px;
+    height: 30px;
+    color: black;
+    background-color: white;
+    border: white 1px solid;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#homewebrightButton {
+    position: absolute;
+    margin-top: 50%;
+    margin-left: 60%;
+    left: 0;
+    text-align: center;
+    line-height: 30px;
+    width: 150px;
+    height: 30px;
+    color: black;
+    background-color: white;
+    border: white 1px solid;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#homewebleftButton:hover {
+    background-color: transparent;
+    transform: scaleX(1.1);
+    transition: all.2s ease;
+    
+}
+
+#homewebrightButton:hover {
+    background-color: transparent;
+    transform: scaleX(1.1);
+    transition: all.2s ease;
+}
+
+#hashtag {
+    color: transparent;
+}

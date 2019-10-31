@@ -1,0 +1,28 @@
+body {
+  min-height: 100%;
+  font: 15px/1.5 Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: #f4f4f4
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* .wrap {
+  padding-top: 150px;
+} */
+
+/* Media Queries */
+@media(max-width: 768px){
+  header #mainlogo,
+  header nav,
+  header nav li,
+  header .right{
+      float:none;
+      text-align: center;
+      width: 100%;
+  }
+}

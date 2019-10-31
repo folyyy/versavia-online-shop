@@ -1,0 +1,93 @@
+.footer{
+    border-top: #CFCDD1 1px solid;
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    background-color: #ffffff;
+    font: 15px/1.5 Arial, Helvetica, sans-serif;
+}
+
+.newsletter {
+    padding-top: 15px;
+    float: right;
+}
+
+#newsletterInput {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    border: 0;
+    outline: 0;
+    width: 250px;
+    padding: 10px 10px 10px 10px;
+}
+
+#newsletterInputButton {
+    background: rgb(50, 50, 50);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    border: 0;
+    outline: 0;
+    padding: 10px 10px 10px 10px;
+    width: 250px;
+}
+
+#newsletterInputButton:hover {
+    background: rgb(0, 0, 0);
+    transform: scaleY(1);
+    transition: .5s ease-in-out;
+}
+
+.newsletter h2 {
+    padding: 0 10px 0 10px;
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+
+.support {
+    padding: 10px 0 0 30px;
+}
+
+.support h2 {
+    /* text-align: center; */
+    padding: 0 10px 0 10px;
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+
+.support a {
+    /* padding: 10px 0 0 30px; */
+    color: #5B5A5C;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.support a:hover {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    transform: scaleY(1);
+    transition: .2s ease-in-out;
+}
+
+.social {
+    padding-top: 60px; 
+    padding-left: 25px;
+}
+
+.social img {
+    padding-right: 5px;
+}
+
+.paymentMethods {
+    padding-top: 60px; 
+    padding-left: 25px;
+}
+
+.paymentMethods img {
+    padding-right: 5px;
+}
+
+
+.copyright {
+    /* padding-top: 100px; */
+    color: #5B5A5C;
+    /* text-align: end; */
+}
