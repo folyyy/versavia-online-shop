@@ -1,2 +1,0 @@
-# versavia-online-shop
- 
