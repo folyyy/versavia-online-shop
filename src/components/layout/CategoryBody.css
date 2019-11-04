@@ -1,0 +1,56 @@
+.homeWebSections {
+    margin-top: 126px;
+}
+
+
+#hashtag {
+    color: transparent;
+    clear: both;
+}
+
+.product {
+    border: transparent 1px solid;
+    width: 30%;
+    /* height: 30%; */
+    float: left;
+}
+
+.product:hover {
+    border: #CFCDD1 1px solid;
+}
+
+.product > a > img{
+    background-color: transparent;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.catLink{
+    text-decoration: none;
+    color: black;
+}
+
+.catLink:hover {
+    font-weight: bold;
+}
+
+.product > a > p {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.product > h2 {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.product > span {
+    margin: auto;
+    display: block;
+    width: 50%;
+    text-align: center;
+}

@@ -10,7 +10,7 @@ export class Header extends Component {
                   <a href="index.html" alt=""><img src="./images/Versavia100x100.png" alt=""></img></a>
                 </div>
                   <ul className="category">
-                    <li><a href="index.html/new/" alt="">Новинки</a></li>
+                    <li><a href="/new" alt="">Новинки</a></li>
                     <li><a href="index.html/men/" alt="">Мужское</a><br></br>
                       <div className="subCategory">
                         <ul className="subSubCategory"><a id="subSubCategory" href="index.html/men/outerwear" alt="">Верхняя одежда</a>
