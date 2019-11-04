@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import './CategoryBody.css'
 
 export class CategoryBody extends Component {
@@ -21,7 +22,7 @@ export class CategoryBody extends Component {
     render() {
         const {list} = this.state;
         return (
-            <div className="homeWebSections">
+            <div className="categorySection">
                 {/* <h1>List of Items</h1> */}
                 {list.length ? (
                 <div>
@@ -29,8 +30,19 @@ export class CategoryBody extends Component {
                         return(
                         <div key={item.id}>
                             <div className="product" id={item.id}>
-                            <a href="/item/haha"><img style={{width: 256, height: 256}} src={"./images/"+item.image} alt=""></img></a>
-                                <a class="catLink" href="/category/"><p>{item.category}</p></a>
+                                <Link to = {{
+                                    pathname: `/item/${item.id}`,
+                                    parameters: {
+                                        id: item.id,
+                                        category: item.category,
+                                        name: item.name,
+                                        image: item.image,
+                                        price: item.price
+                                    }
+                                }}><img style={{width: 256, height: 256}} src={"/images/"+item.image} alt=""></img></Link>
+                            {/* <Link to={`/item/${item.id}`} params={{ testvalue: "hello" }}><img style={{width: 256, height: 256}} src={"/images/"+item.image} alt=""></img></Link> */}
+                            {/* <a href={`/item/${item.id}`}><img style={{width: 256, height: 256}} src={"/images/"+item.image} alt=""></img></a> */}
+                                <a className="catLink" href="/category/"><p>{item.category}</p></a>
                                 <h2>{item.name}</h2>
                                 <span>{item.price}</span>
                             </div>

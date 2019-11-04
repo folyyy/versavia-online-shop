@@ -25,70 +25,70 @@ app.get('/api/getList', (req,res) => {
                 category: 'Пальто',
                 name: 'Пальто женское',
                 image: '/instagram.png',
-                price: '10000 рублей'
+                price: '10 000 \u20bd'
             },
             {
                 id: 2,
                 category: 'Пальто',
                 name: 'Пальто мужское',
                 image: '/instagram.png',
-                price: '20000 рублей'
+                price: '10 000 \u20bd'
             },
             {
                 id: 3,
                 category: 'Пальто',
                 name: 'Пальто женское',
                 image: '/instagram.png',
-                price: '10000 рублей'
+                price: '10 000 \u20bd'
             },
             {
                 id: 4,
                 category: 'Пальто',
                 name: 'Пальто мужское',
                 image: '/instagram.png',
-                price: '20000 рублей'
+                price: '10 000 \u20bd'
             },
             {
                 id: 5,
                 category: 'Пальто',
                 name: 'Пальто женское',
                 image: '/instagram.png',
-                price: '10000 рублей'
+                price: '10 000 \u20bd'
             },
             {
                 id: 6,
                 category: 'Пальто',
                 name: 'Пальто мужское',
                 image: '/instagram.png',
-                price: '20000 рублей'
+                price: '10 000 \u20bd'
             },
             {
                 id: 7,
                 category: 'Пальто',
                 name: 'Пальто женское',
                 image: '/instagram.png',
-                price: '10000 рублей'
+                price: '10 000 \u20bd'
             },
             {
                 id: 8,
                 category: 'Пальто',
                 name: 'Пальто мужское',
                 image: '/instagram.png',
-                price: '20000 рублей'
+                price: '10 000 \u20bd'
             },
             {
                 id: 9,
                 category: 'Пальто',
                 name: 'Пальто женское',
                 image: '/instagram.png',
-                price: '10000 рублей'
+                price: '10 000 \u20bd'
             },
             {
                 id: 10,
                 category: 'Пальто',
                 name: 'Пальто мужское',
                 image: '/instagram.png',
-                price: '20000 рублей'
+                price: '10 000 \u20bd'
             },
     ]
 

@@ -7,7 +7,7 @@ export class Header extends Component {
             <header>
             <nav>
                 <div id="mainlogo">
-                  <a href="index.html" alt=""><img src="./images/Versavia100x100.png" alt=""></img></a>
+                  <a href="/" alt=""><img src="/images/Versavia100x100.png" alt=""></img></a>
                 </div>
                   <ul className="category">
                     <li><a href="/new" alt="">Новинки</a></li>
@@ -102,8 +102,8 @@ export class Header extends Component {
                   </ul>
                 <div className="right">
                     <input id="searchInput" placeholder="Поиск" name="text" type="text"></input>
-                    <a href="index.html/checkout" alt=""><img src="./images/cart32x32.png" alt=""></img></a>
-                    <a href="index.html/profile" alt=""><img src="./images/profile32x32.png" alt=""></img></a> 
+                    <a href="index.html/checkout" alt=""><img src="/images/cart32x32.png" alt=""></img></a>
+                    <a href="index.html/profile" alt=""><img src="/images/profile32x32.png" alt=""></img></a> 
                     
                 </div>
               </nav>
