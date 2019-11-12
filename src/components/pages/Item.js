@@ -8,30 +8,55 @@ export class Item extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            item: {
-                id: props.location.parameters.id || "id unknown",
-                category: props.location.parameters.category || "category unknown",
-                name: props.location.parameters.name || "name unknown",
-                image: props.location.parameters.image || "image unknown",
-                price: props.location.parameters.price || "price unknown",
-            }
+            list: []
         }
     }
+
+    getData = () => {
+        let data = this.props.match.params.id;
+        let dataObject = { data };
+        fetch('/api/getProductById', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(dataObject)
+          }).then(function(response) {
+            return response.json();
+          }).then(list => {
+              if (list.length === 0) {
+                this.props.history.push('/home')
+              } else {
+              this.setState({ list })
+              }
+            })
+    } 
+
+  componentDidMount() {
+    this.getData();
+}
     render() {
-        console.log(this.state);
+        var { list } = this.state;
         return (
             <div>
                 <Header />
                     <div className="itemPage">
-                        <div className="productWrapper">
-                            <img src={`/images/${this.state.item.image}`} alt=""></img>
+                    {list.map((item) => {
+                        return (
+                        <div key={item.code}>
+                            <div className="productWrapper">
+                                <img src={`/images/${item.image}`} alt=""></img>
+                            </div>
+                            <div className="infoWrapper">
+                                <h2>{item.name}</h2>
+                                <p id="itemPrice">{item.productprice}</p>
+                                <p id="itemCategory">{item.category}</p>
+                                <input id="itemCartInput" type="submit" value="Добавить в корзину"></input>
+                            </div> 
                         </div>
-                        <div className="infoWrapper">
-                            <h2>{this.state.item.name}</h2>
-                            <p id="itemPrice">{this.state.item.price}</p>
-                            <p id="itemCategory">{this.state.item.category}</p>
-                            <input id="itemCartInput" type="submit" value="Добавить в корзину"></input>
-                        </div>
+                        );
+                    })}
                         <p id="hashtag">#</p>
                     </div>
                 <Footer />

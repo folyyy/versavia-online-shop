@@ -6,6 +6,7 @@ import New from './components/pages/New';
 // import Sale from './components/pages/Sale';
 // import Women from './components/pages/Women';
 import Item from './components/pages/Item';
+import Admin from './components/pages/Admin.js';
  
 // import './App.css';
 
@@ -21,6 +22,7 @@ export class App extends Component {
           {/* <Route exact path='/sale' component={Sale}/> */}
           {/* <Route exact path='/women' component={Women}/> */}
           <Route exact path='/item/:id' component={Item}/>
+          <Route exact path='/admin' component={Admin}/>
           <App />
         </Switch>
       </div>

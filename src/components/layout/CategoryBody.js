@@ -11,11 +11,11 @@ export class CategoryBody extends Component {
     }
 
     componentDidMount() {
-        this.getList();
+        this.outputDB();
     }
 
-    getList = () => {
-        fetch('/api/getList')
+    outputDB = () => {
+        fetch('/api/outputDB')
         .then(res => res.json())
         .then(list => this.setState({ list }))
     }
@@ -23,28 +23,16 @@ export class CategoryBody extends Component {
         const {list} = this.state;
         return (
             <div className="categorySection">
-                {/* <h1>List of Items</h1> */}
                 {list.length ? (
                 <div>
                     {list.map((item) => {
                         return(
-                        <div key={item.id}>
-                            <div className="product" id={item.id}>
-                                <Link to = {{
-                                    pathname: `/item/${item.id}`,
-                                    parameters: {
-                                        id: item.id,
-                                        category: item.category,
-                                        name: item.name,
-                                        image: item.image,
-                                        price: item.price
-                                    }
-                                }}><img style={{width: 256, height: 256}} src={"/images/"+item.image} alt=""></img></Link>
-                            {/* <Link to={`/item/${item.id}`} params={{ testvalue: "hello" }}><img style={{width: 256, height: 256}} src={"/images/"+item.image} alt=""></img></Link> */}
-                            {/* <a href={`/item/${item.id}`}><img style={{width: 256, height: 256}} src={"/images/"+item.image} alt=""></img></a> */}
+                        <div key={item.code}>
+                            <div className="product" id={item.code}>
+                                <Link to = {{pathname: `/item/${item.code}`}}><img style={{width: 256, height: 256}} src={"/images/"+item.image} alt=""></img></Link>
                                 <a className="catLink" href="/category/"><p>{item.category}</p></a>
                                 <h2>{item.name}</h2>
-                                <span>{item.price}</span>
+                                <span>{item.productprice}</span>
                             </div>
                         </div>
                         );
