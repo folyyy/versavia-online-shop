@@ -1,0 +1,83 @@
+.adminBody {
+    margin-top: 126px;
+    margin-left: 25%;
+    width: 50%;
+    min-height: 500px;
+    border: 3px solid #252525;
+    padding: 10px;
+}
+
+.table {
+    margin: auto;
+    width: 50%;
+    border: 3px solid #252525;
+    padding: 10px;
+}
+
+.productsOutput {
+    width: 100%;
+    height: auto;
+    border: 1px solid #252525;
+    border-radius: 3px;
+}
+
+#databaseAddProduct {
+    background: #fff;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    border: 0;
+    outline: 0;
+    padding: 10px 10px;
+    width: 80%;
+}
+
+#databaseAddProductButton {
+    /* margin-top: 30px; */
+    background: #252525;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    border: 0;
+    outline: 0;
+    padding: 10px 10px;
+    color: #fff;
+    border-radius: 3px;
+    width: 100%;
+}
+
+#databaseAddProductButton:hover {
+    background: #000000;
+    transition: .1s ease-in-out;
+}
+
+#databaseUpdateProductButton {
+    margin-top: 30px;
+    background: #252525;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    border: 0;
+    outline: 0;
+    padding: 10px 10px;
+    color: #fff;
+    border-radius: 3px;
+    width: 100%;
+}
+
+#databaseUpdateProductButton:hover {
+    background: #000000;
+    transition: .1s ease-in-out;
+}
+
+#databaseDeleteProductButton {
+    margin-top: 30px;
+    background: #252525;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    border: 0;
+    outline: 0;
+    padding: 10px 10px;
+    color: #fff;
+    border-radius: 3px;
+    width: 100%;
+}
+
+#databaseDeleteProductButton:hover {
+    background: #000000;
+    transition: .1s ease-in-out;
+}
+

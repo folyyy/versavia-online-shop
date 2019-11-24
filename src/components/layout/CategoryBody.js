@@ -5,13 +5,10 @@ import './CategoryBody.css'
 export class CategoryBody extends Component {
     constructor(props) {
         super(props);
+        this.outputDB();
         this.state = {
             list: [],
         }
-    }
-
-    componentDidMount() {
-        this.outputDB();
     }
 
     outputDB = () => {
@@ -32,7 +29,7 @@ export class CategoryBody extends Component {
                                 <Link to = {{pathname: `/item/${item.code}`}}><img style={{width: 256, height: 256}} src={"/images/"+item.image} alt=""></img></Link>
                                 <a className="catLink" href="/category/"><p>{item.category}</p></a>
                                 <h2>{item.name}</h2>
-                                <span>{item.productprice}</span>
+                                <span>{item.productprice} ₽</span>
                             </div>
                         </div>
                         );
@@ -40,7 +37,6 @@ export class CategoryBody extends Component {
                 </div>
                 ) : (
                 <div>
-                    <h2>No List Items Found</h2>
                 </div>
                     )
                 }

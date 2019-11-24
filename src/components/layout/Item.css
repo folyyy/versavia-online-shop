@@ -59,9 +59,27 @@
     width: 40%;
     height: 50px;
     font-size: 16px;
+    margin-left: 250px;
+    margin-top: 50px;
 }
 
 .infoWrapper > input:hover {
     background: rgb(100, 100, 100);
     transition: .1s ease-in-out;
+    cursor: pointer;
+}
+
+.selectSize {
+    background: white;
+    color: black;
+    border-radius: 3px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    border: 0;
+    outline: 0;
+    padding: 10px 10px 10px 10px;
+    width: 40%;
+    height: 50px;
+    font-size: 16px;
+    margin-left: 250px;
+    margin-top: 50px;
 }

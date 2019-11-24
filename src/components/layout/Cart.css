@@ -1,0 +1,161 @@
+.cartPage {
+    margin-top: 150px;
+    width: 85%;
+}
+
+table {
+    display: table;
+    width: 100%;
+    margin-left: 9%;
+    border-collapse: separate;
+    white-space: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-style: normal;
+    color: -internal-quirk-inherit;
+    text-align: start;
+    border-spacing: 2px;
+    border-color: grey;
+    font-variant: normal;
+}
+
+thead td {
+    border-bottom: 1px solid #cacaca;
+    padding: 4px 30px 4px 0;
+    color: #757575;
+}
+
+tbody td{
+    vertical-align: text-top;
+}
+
+.name img {
+    margin-top: 20px;
+    width: 15%;
+    float: left;
+}
+
+.name h3 {
+    margin-left: 20%;
+}
+.name p {
+    margin-left: 20%;
+    color: #757575;
+}
+
+tbody .size{
+    margin-left: 50%;
+}
+
+.quantity button {
+    width: 30px;
+}
+
+.quantity input{
+    width: 30px;
+}
+
+.cartItemDelete {
+    height: 30px;
+    width: 30px;
+}
+
+.cartItemDelete:hover {
+    cursor: pointer;
+}
+
+.bottom {
+    margin-top: 140px;
+}
+
+.promo {
+    float: left;
+    width: 450px;
+    height: 65px;
+    margin-left: 10%;
+    margin-right: auto;
+    display: block;
+    border: 1px solid #757575;
+    border-radius: 10px;
+    background: rgb(50, 50, 50);
+}
+
+#promoInput {
+    color: rgb(0, 0, 0);
+    margin-left: 10px;
+    font-weight: bold;
+    float: none;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    border: 0;
+    outline: 0;
+    width: 50%;
+    padding: 10px 10px 10px 10px;
+}
+
+#promoSubmit {
+    float: none;
+    background: rgb(255, 120, 40);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    border: 0;
+    outline: 0;
+    padding: 10px 10px 10px 10px;
+    width: 35%;
+    margin-left: 5%;
+}
+
+#promoSubmit:hover {
+    background: rgba(255, 119, 40, 0.7);
+    cursor: pointer;
+}
+
+.conc {
+    width: 320px;
+    height: 130px;
+    margin-left: auto;
+    margin-right: -10%;
+    display: block;
+    border: 1px solid #757575;
+    border-radius: 10px;
+    background: rgb(50, 50, 50);
+}
+
+#concText {
+    color: rgb(255, 255, 255);
+    margin-left: 10px;
+    font-weight: bold;
+    float: none;
+}
+
+#concSum {
+    color: rgb(255, 120, 40);
+    font-size: 20px;
+    float: right;
+    margin-right: 10px;
+}
+
+#checkoutButton {
+    float: none;
+    background: rgb(255, 120, 40);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    border: 0;
+    outline: 0;
+    padding: 10px 10px 10px 10px;
+    width: 50%;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+#checkoutButton:hover {
+    background: rgba(255, 107, 21, 1);
+    cursor: pointer;
+}
+
+#hashtag {
+    color: transparent;
+    clear: both;
+}

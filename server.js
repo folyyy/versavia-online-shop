@@ -148,3 +148,271 @@ app.post('/api/getProductById', function(request,response) {
         })
       }) 
 });
+
+// Adding to a cart database
+app.post('/api/addToCartDb', function(request,response) {
+  // Getting the values
+  var userId, name, image, price, size, code;
+  userId = request.body.data.userId;
+  size = request.body.data.size;
+  request.body.data.list.filter(item => {
+    name = item.name
+    image = item.image
+    price = item.productprice
+    code = item.code
+  })
+  console.log(code);
+
+  // Making queries
+  pool.connect((err, client, done) => {
+    if (err) throw err
+    client.query(`SELECT * FROM "Cart" WHERE "userId" = $1`, [userId] , (err, res) => {
+      done()
+      if (err) {
+        console.log(err.stack)
+      } else {
+        // Check if a table is empty
+        if (res.rows.length > 0) {
+          let hasSize = false;
+          res.rows.map((item) => {
+            if (item.size === size && item.code === code) {
+              hasSize = true;
+            }
+          })
+        // If an item with the same size is already in cart, increase quantity by 1 
+        if (hasSize) {
+          pool.connect((err, client, done) => {
+            if (err) throw err
+            client.query(`UPDATE "Cart" SET quantity = quantity + 1 WHERE "userId" = $1 AND "size" = $2 AND "code" = $3`, [userId, size, code] , (err, res) => {
+              done()
+              if (err) {
+                console.log(err.stack)
+              } else {
+                console.log("There is already an item with this size, increased quantity by 1.");
+              }
+            })
+          })
+        // Else insert a new row
+         } else {
+            pool.connect((err, client, done) => {
+              if (err) throw err
+              client.query(`INSERT INTO "Cart"("name","image","quantity","price","size","userId","code") VALUES($1,$2,$3,$4,$5,$6,$7)`, [name,image,1,price,size,userId,code] , (err, res) => {
+                done()
+                if (err) {
+                  console.log(err.stack)
+                } else {
+                  console.log("Inserting a new item.");
+                }
+              })
+            }) 
+          }
+        }
+        // Table is empty => insert a new row
+        else {
+              pool.connect((err, client, done) => {
+              if (err) throw err
+              client.query(`INSERT INTO "Cart"("name","image","quantity","price","size","userId","code") VALUES($1,$2,$3,$4,$5,$6,$7)`, [name,image,1,price,size,userId,code] , (err, res) => {
+                done()
+                if (err) {
+                  console.log(err.stack)
+                } else {
+                  console.log("Inserting a new item.");
+                }
+              })
+            }) 
+          }
+      }
+    })
+  })
+});
+
+// Getting items from database in cart
+app.post('/api/getCartItems', function(request,response) {
+  // Getting the values
+  console.log(request.body);
+  var userId;
+  userId = request.body.data;
+  console.log("user id = " + userId);
+
+  // Making queries
+  pool.connect((err, client, done) => {
+    if (err) throw err
+    client.query(`SELECT * FROM "Cart" WHERE "userId" = $1 ORDER BY "name"`, [userId] , (err, res) => {
+      done()
+      if (err) {
+        console.log(err.stack)
+      } else {
+        console.log("Items sent to cart");
+        response.send(res.rows);
+        }
+    })
+  })
+});
+
+// Changing the quantity
+app.post('/api/changeItemQty', function(request,response) {
+  pool.connect((err, client, done) => {
+    if (err) throw err
+    client.query(`UPDATE "Cart" SET quantity = $1 WHERE "id" = $2`, [request.body.data.quantity, request.body.data.id] , (err, res) => {
+      done()
+      if (err) {
+        console.log(err.stack)
+      } else {
+        console.log("Quantity updated");
+        response.send(res.rows);
+        }
+    })
+  })
+});
+
+// Deleting an item from cart
+app.post('/api/cartItemDelete', function(request,response) {
+  pool.connect((err, client, done) => {
+    if (err) throw err
+    client.query(`DELETE FROM "Cart" WHERE "id" = $1`, [request.body.data.id] , (err, res) => {
+      done()
+      if (err) {
+        console.log(err.stack)
+      } else {
+        console.log("Item deleted");
+        response.send(res.rows);
+        }
+    })
+  })
+});
+
+// Completing the purchase
+app.post('/api/doCheckout', urlencodedParser, async function (request, response) {
+  if(!request.body) return response.sendStatus(400);
+  console.log(request.body);
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var goods = "";
+
+  pool.connect((err, client, done) => {
+    if (err) {
+      response.redirect('/home')
+      throw err
+    }
+    // Getting all user's products
+    client.query(`SELECT * FROM "Cart" WHERE "userId" = $1 ORDER BY "name"`, [request.body.userId] , (err, res) => {
+      done()
+      if (err) {
+        console.log(err.stack)
+        response.redirect('/home')
+      } else {
+        console.log("Got cart items")
+        // Getting the values
+          for (let i = 0; i < res.rows.length; i++) {
+            goods += i+1 + ". Артикул: " + res.rows[i].code + ", Название: " + res.rows[i].name + ", Размер: " + res.rows[i].size + ", Количество: " + res.rows[i].quantity + "; ";
+          }
+          let purchase = {
+            userId: request.body.userId || null,
+            status: "Не подтвержден",
+            products: goods || null,
+            deliveryType: request.body.deliveryType || null,
+            firstName: request.body.firstName || null,
+            lastName: request.body.lastName || null,
+            phoneNumber: request.body.phoneNumber || null,
+            email: request.body.email || null,
+            city: request.body.city || null,
+            address: request.body.address || null,
+            building: request.body.building || null,
+            housing: request.body.housing || null,
+            apartment: request.body.apartment || null,
+            totalSum: request.body.totalSum || null,
+            dateOfPurchase: date,
+            dateOfDelivery: null
+          }
+          // Inserting purchase information to a database
+          pool.connect((err, client, done) => {
+            if (err) {
+              response.redirect('/home')
+              throw err
+            }
+            client.query(`INSERT INTO "Purchases" VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16)`,[purchase.userId, purchase.status, purchase.products, 
+              purchase.deliveryType, purchase.firstName, purchase.lastName, purchase.phoneNumber, purchase.email, purchase.address, purchase.building,
+              purchase.housing, purchase.apartment, purchase.totalSum, purchase.dateOfPurchase, purchase.dateOfDelivery, purchase.city], (err) => {
+                done()
+                if (err) {
+                  console.log(err.stack)
+                  response.redirect('/home')
+                } else {
+                  console.log("Purchase successfully added to a database")
+                  // Deleting user's cart
+                  pool.connect((err, client, done) => {
+                    if (err) throw err
+                    client.query(`DELETE FROM "Cart" WHERE "userId" = $1`, [purchase.userId] , (err, res) => {
+                      done()
+                      if (err) {
+                        console.log(err.stack)
+                        response.redirect('/home')
+                      } else {
+                        console.log("Items deleted from cart");
+                        response.redirect('/cart')
+                        }
+                    })
+                  })
+                } 
+            })
+          })
+        }
+    })
+  })
+});
+
+// Sending purchases database to client
+app.get('/api/outputPurchasesDB', function(request,response) {
+  pool.connect((err, client, done) => {
+      if (err) throw err
+      client.query(`SELECT * FROM "Purchases" ORDER BY "id"`, (err, res) => {
+        done()
+        if (err) {
+          console.log(err.stack)
+        } else {
+          response.send(res.rows);
+        }
+      })
+    }) 
+});
+
+// Updating purchases
+app.post('/api/updatePurchase', urlencodedParser, function (req, res) {
+  if(!req.body) return res.sendStatus(400);
+  console.log(req.body.param + " " + req.body.newValue + " " + req.body.code);
+  if(req.body.param === "" || req.body.newValue === "" || req.body.code === "") {
+      console.log("Not enough data");
+      res.redirect('/admin/purchases');
+      return;
+  }
+    pool.connect((err, client, done) => {
+      if (err) throw err
+      client.query(`UPDATE "Purchases" SET "${req.body.param}" = $1 WHERE "id" = $2`,[req.body.newValue, req.body.code], (err) => {
+        done()
+        if (err) {
+          console.log(err.stack)
+        }
+      })
+    }) 
+  res.redirect('/admin/purchases');
+});
+
+// Deleting purchases
+app.post('/api/deletePurchase', urlencodedParser, function (req, res) {
+  if(!req.body) return res.sendStatus(400);
+  if (req.body.id === "") {
+      console.log("Not enough data");
+      res.redirect('/admin/purchases');
+      return;
+  }
+  pool.connect((err, client, done) => {
+      if (err) throw err
+      client.query(`DELETE FROM "Purchases" WHERE "id" = $1`,[req.body.id], (err) => {
+        done()
+        if (err) {
+          console.log(err.stack)
+        }
+      })
+    }) 
+  res.redirect('/admin/purchases');
+});

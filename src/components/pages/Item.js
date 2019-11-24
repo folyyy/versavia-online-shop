@@ -1,15 +1,32 @@
 import React, { Component } from 'react'
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
-import '../layout/Item.css'
-
+import '../layout/Item.css';
+import Cookies from 'js-cookie'
 
 export class Item extends Component {
     constructor(props) {
         super(props);
+        this.getData();
         this.state = {
-            list: []
+            list: [],
+            userId: Cookies.get('_ga'),
+            size: 'XS'
         }
+    }
+
+    addToCart() {
+        let data = this.state;
+        let dataObject = { data };
+        fetch('/api/addToCartDb', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(dataObject)
+          });
+        this.props.history.push('/cart');
     }
 
     getData = () => {
@@ -33,9 +50,6 @@ export class Item extends Component {
             })
     } 
 
-  componentDidMount() {
-    this.getData();
-}
     render() {
         var { list } = this.state;
         return (
@@ -50,9 +64,19 @@ export class Item extends Component {
                             </div>
                             <div className="infoWrapper">
                                 <h2>{item.name}</h2>
-                                <p id="itemPrice">{item.productprice}</p>
+                                <p id="itemPrice">{item.productprice} ₽</p>
                                 <p id="itemCategory">{item.category}</p>
-                                <input id="itemCartInput" type="submit" value="Добавить в корзину"></input>
+                                <select className="selectSize" name="size" onChange={(e) => this.setState({size: e.target.value})}>
+                                    <option value="none" defaultValue disabled hidden>Размер</option>
+                                    <option value="XS">XS</option>
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XXL">XXL</option>
+                                </select>
+                                <br></br>
+                                <input id="itemCartInput" type="submit" value="Добавить в корзину" onClick={() => {this.addToCart()}}></input>
                             </div> 
                         </div>
                         );

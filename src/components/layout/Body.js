@@ -10,8 +10,8 @@ export class Body extends Component {
                     <img src="./images/homewebimg.jpg" alt=""></img>
                     <h1>Актуальные предложения</h1>
                     <div className="homeWebButtons">
-                        <a className="homeWebButtonsWomen" href="/women/all" alt="">Женщины</a>
-                        <a className="homeWebButtonsMen" href="/men/all" alt="">Мужчины</a>
+                        <a className="homeWebButtonsWomen" href="/women/" alt="">Женщины</a>
+                        <a className="homeWebButtonsMen" href="/men/" alt="">Мужчины</a>
                     </div>
                 </div>
 
@@ -21,8 +21,8 @@ export class Body extends Component {
                         <img id="homewebrightimg" src="./images/homewebrightimg.jpg" alt=""></img>  
                         <h1 id="homewebleftH1">Женская одежда</h1>
                         <h1 id="homewebrightH1">Мужская одежда</h1>
-                        <a id="homewebleftButton" href="/women/all" alt="">Женщины</a> 
-                        <a id="homewebrightButton" href="/men/all" alt="">Мужчины</a>      
+                        <a id="homewebleftButton" href="/women/" alt="">Женщины</a> 
+                        <a id="homewebrightButton" href="/men/" alt="">Мужчины</a>      
                 </div>
                     <p id="hashtag">#</p>
             </div>

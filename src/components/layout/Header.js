@@ -11,100 +11,98 @@ export class Header extends Component {
                 </div>
                   <ul className="category">
                     <li><a href="/new" alt="">Новинки</a></li>
-                    <li><a href="index.html/men/" alt="">Мужское</a><br></br>
+                    <li><a href="/men" alt="">Мужское</a><br></br>
                       <div className="subCategory">
-                        <ul className="subSubCategory"><a id="subSubCategory" href="index.html/men/outerwear" alt="">Верхняя одежда</a>
+                        <ul className="subSubCategory"><a id="subSubCategory" href="/men/outerwear" alt="">Верхняя одежда</a>
                             <li><a href="/men/outerwear/windbreakers" alt="">Ветровки</a></li>
-                            <li><a href="index.html/men/outerwear/jackets" alt="">Куртки</a></li>
-                            <li><a href="index.html/men/outerwear/summer" alt="">Летние</a></li>
-                            <li><a href="index.html/men/outerwear/parka" alt="">Парки</a></li>
-                            <li><a href="index.html/men/outerwear/coat" alt="">Пальто</a></li>
+                            <li><a href="/men/outerwear/jackets" alt="">Куртки</a></li>
+                            <li><a href="/men/outerwear/summer" alt="">Летние</a></li>
+                            <li><a href="/men/outerwear/parka" alt="">Парки</a></li>
+                            <li><a href="/men/outerwear/coat" alt="">Пальто</a></li>
                         </ul>
-                          <ul className="subSubCategory"><a id="subSubCategory" href="index.html/men/clothes" alt="">Одежда</a>
-                            <li><a href="index.html/men/clothes/pants" alt="">Брюки</a></li>
-                            <li><a href="index.html/men/clothes/jeans" alt="">Джинсы</a></li>
-                            <li><a href="index.html/men/clothes/longslives" alt="">Лонгсливы</a></li>
-                            <li><a href="index.html/men/clothes/polo" alt="">Поло</a></li>
-                            <li><a href="index.html/men/clothes/shirts" alt="">Рубашки</a></li>
-                            <li><a href="index.html/men/clothes/hoodies" alt="">Толстовки</a></li>
-                            <li><a href="index.html/men/clothes/tshirts" alt="">Футболки</a></li>
-                            <li><a href="index.html/men/clothes/shorts" alt="">Шорты</a></li>
+                          <ul className="subSubCategory"><a id="subSubCategory" href="/men/clothes" alt="">Одежда</a>
+                            <li><a href="/men/clothes/pants" alt="">Брюки</a></li>
+                            <li><a href="/men/clothes/jeans" alt="">Джинсы</a></li>
+                            <li><a href="/men/clothes/longslives" alt="">Лонгсливы</a></li>
+                            <li><a href="/men/clothes/polo" alt="">Поло</a></li>
+                            <li><a href="/men/clothes/shirts" alt="">Рубашки</a></li>
+                            <li><a href="/men/clothes/hoodies" alt="">Толстовки</a></li>
+                            <li><a href="/men/clothes/tshirts" alt="">Футболки</a></li>
+                            <li><a href="/men/clothes/shorts" alt="">Шорты</a></li>
                          </ul>
-                          <ul className="subSubCategory"><a id="subSubCategory" href="index.html/men/accesories" alt="">Аксессуары</a>
-                            <li><a href="index.html/men/accesories/underwear" alt="">Нижнее белье</a></li>
-                            <li><a href="index.html/men/accesories/socks" alt="">Носки</a></li>
-                            <li><a href="index.html/men/accesories/gloves" alt="">Перчатки</a></li>
-                            <li><a href="index.html/men/accesories/hats" alt="">Шапки</a></li>
-                            <li><a href="index.html/men/accesories/scarfs" alt="">Шарфы</a></li>
+                          <ul className="subSubCategory"><a id="subSubCategory" href="/men/accesories" alt="">Аксессуары</a>
+                            <li><a href="/men/accesories/underwear" alt="">Нижнее белье</a></li>
+                            <li><a href="/men/accesories/socks" alt="">Носки</a></li>
+                            <li><a href="/men/accesories/gloves" alt="">Перчатки</a></li>
+                            <li><a href="/men/accesories/hats" alt="">Шапки</a></li>
+                            <li><a href="/men/accesories/scarfs" alt="">Шарфы</a></li>
                           </ul>
                       </div>
                     </li>
         
-                    <li><a href="index.html/women/" alt="">Женское</a><br></br>
+                    <li><a href="/women/" alt="">Женское</a><br></br>
                       <div className="subCategory">
-                        <ul className="subSubCategory"><a id="subSubCategory" href="index.html/women/outerwear" alt="">Верхняя одежда</a>
-                            <li><a href="index.html/women/outerwear/windbreakers" alt="">Ветровки</a></li>
-                            <li><a href="index.html/women/outerwear/jackets" alt="">Куртки</a></li>
-                            <li><a href="index.html/women/outerwear/summer" alt="">Летние</a></li>
-                            <li><a href="index.html/women/outerwear/parka" alt="">Парки</a></li>
-                            <li><a href="index.html/women/outerwear/coat" alt="">Пальто</a></li>
-                            <li><a href="index.html/women/outerwear/furcoats" alt="">Шубы</a></li>
+                        <ul className="subSubCategory"><a id="subSubCategory" href="/women/outerwear" alt="">Верхняя одежда</a>
+                            <li><a href="/women/outerwear/windbreakers" alt="">Ветровки</a></li>
+                            <li><a href="/women/outerwear/jackets" alt="">Куртки</a></li>
+                            <li><a href="/women/outerwear/summer" alt="">Летние</a></li>
+                            <li><a href="/women/outerwear/parka" alt="">Парки</a></li>
+                            <li><a href="/women/outerwear/coat" alt="">Пальто</a></li>
+                            <li><a href="/women/outerwear/furcoats" alt="">Шубы</a></li>
                         </ul>
-                        <ul className="subSubCategory"><a id="subSubCategory" href="index.html/women/clothes" alt="">Одежда</a>
-                            <li><a href="index.html/women/clothes/pants" alt="">Брюки</a></li>
-                            <li><a href="index.html/women/clothes/jeans" alt="">Джинсы</a></li>
-                            <li><a href="index.html/women/clothes/longslives" alt="">Лонгсливы</a></li>
-                            <li><a href="index.html/women/clothes/polo" alt="">Поло</a></li>
-                            <li><a href="index.html/women/clothes/shirts" alt="">Рубашки</a></li>
-                            <li><a href="index.html/women/clothes/hoodies" alt="">Толстовки</a></li>
-                            <li><a href="index.html/women/clothes/tshirts" alt="">Футболки</a></li>
-                            <li><a href="index.html/women/clothes/shorts" alt="">Шорты</a></li>
+                        <ul className="subSubCategory"><a id="subSubCategory" href="/women/clothes" alt="">Одежда</a>
+                            <li><a href="/women/clothes/pants" alt="">Брюки</a></li>
+                            <li><a href="/women/clothes/jeans" alt="">Джинсы</a></li>
+                            <li><a href="/women/clothes/longslives" alt="">Лонгсливы</a></li>
+                            <li><a href="/women/clothes/polo" alt="">Поло</a></li>
+                            <li><a href="/women/clothes/shirts" alt="">Рубашки</a></li>
+                            <li><a href="/women/clothes/hoodies" alt="">Толстовки</a></li>
+                            <li><a href="/women/clothes/tshirts" alt="">Футболки</a></li>
+                            <li><a href="/women/clothes/shorts" alt="">Шорты</a></li>
                          </ul>
-                        <ul className="subSubCategory"><a id="subSubCategory" href="index.html/women/accesories" alt="">Аксессуары</a>
-                            <li><a href="index.html/women/accesories/underwear" alt="">Нижнее белье</a></li>
-                            <li><a href="index.html/women/accesories/socks" alt="">Носки</a></li>
-                            <li><a href="index.html/women/accesories/gloves" alt="">Перчатки</a></li>
-                            <li><a href="index.html/women/accesories/hats" alt="">Шапки</a></li>
-                            <li><a href="index.html/women/accesories/scarfs" alt="">Шарфы</a></li>
+                        <ul className="subSubCategory"><a id="subSubCategory" href="/women/accesories" alt="">Аксессуары</a>
+                            <li><a href="/women/accesories/underwear" alt="">Нижнее белье</a></li>
+                            <li><a href="/women/accesories/socks" alt="">Носки</a></li>
+                            <li><a href="/women/accesories/gloves" alt="">Перчатки</a></li>
+                            <li><a href="/women/accesories/hats" alt="">Шапки</a></li>
+                            <li><a href="/women/accesories/scarfs" alt="">Шарфы</a></li>
                           </ul>
                       </div>
                     </li>
         
-                    <li><a href="index.html/sale/" alt="">Распродажа</a><br></br>
+                    <li><a href="/sale/" alt="">Распродажа</a><br></br>
                       <div className="subCategory">
-                        <ul className="subSubCategory"><a id="subSubCategory" href="index.html/sale/outerwear" alt="">Верхняя одежда</a>
-                            <li><a href="index.html/sale/outerwear/windbreakers" alt="">Ветровки</a></li>
-                            <li><a href="index.html/sale/outerwear/jackets" alt="">Куртки</a></li>
-                            <li><a href="index.html/sale/outerwear/summer" alt="">Летние</a></li>
-                            <li><a href="index.html/sale/outerwear/parka" alt="">Парки</a></li>
-                            <li><a href="index.html/sale/outerwear/coat" alt="">Пальто</a></li>
-                            <li><a href="index.html/sale/outerwear/furcoats" alt="">Шубы</a></li>
+                        <ul className="subSubCategory"><a id="subSubCategory" href="/sale/outerwear" alt="">Верхняя одежда</a>
+                            <li><a href="/sale/outerwear/windbreakers" alt="">Ветровки</a></li>
+                            <li><a href="/sale/outerwear/jackets" alt="">Куртки</a></li>
+                            <li><a href="/sale/outerwear/summer" alt="">Летние</a></li>
+                            <li><a href="/sale/outerwear/parka" alt="">Парки</a></li>
+                            <li><a href="/sale/outerwear/coat" alt="">Пальто</a></li>
+                            <li><a href="/sale/outerwear/furcoats" alt="">Шубы</a></li>
                         </ul>
-                        <ul className="subSubCategory"><a id="subSubCategory" href="index.html/sale/clothes" alt="">Одежда</a>
-                            <li><a href="index.html/sale/clothes/pants" alt="">Брюки</a></li>
-                            <li><a href="index.html/sale/clothes/jeans" alt="">Джинсы</a></li>
-                            <li><a href="index.html/sale/clothes/longslives" alt="">Лонгсливы</a></li>
-                            <li><a href="index.html/sale/clothes/polo" alt="">Поло</a></li>
-                            <li><a href="index.html/sale/clothes/shirts" alt="">Рубашки</a></li>
-                            <li><a href="index.html/sale/clothes/hoodies" alt="">Толстовки</a></li>
-                            <li><a href="index.html/sale/clothes/tshirts" alt="">Футболки</a></li>
-                            <li><a href="index.html/sale/clothes/shorts" alt="">Шорты</a></li>
+                        <ul className="subSubCategory"><a id="subSubCategory" href="/sale/clothes" alt="">Одежда</a>
+                            <li><a href="/sale/clothes/pants" alt="">Брюки</a></li>
+                            <li><a href="/sale/clothes/jeans" alt="">Джинсы</a></li>
+                            <li><a href="/sale/clothes/longslives" alt="">Лонгсливы</a></li>
+                            <li><a href="/sale/clothes/polo" alt="">Поло</a></li>
+                            <li><a href="/sale/clothes/shirts" alt="">Рубашки</a></li>
+                            <li><a href="/sale/clothes/hoodies" alt="">Толстовки</a></li>
+                            <li><a href="/sale/clothes/tshirts" alt="">Футболки</a></li>
+                            <li><a href="/sale/clothes/shorts" alt="">Шорты</a></li>
                          </ul>
-                        <ul className="subSubCategory"><a id="subSubCategory" href="index.html/sale/accesories" alt="">Аксессуары</a>
-                            <li><a href="index.html/sale/accesories/underwear" alt="">Нижнее белье</a></li>
-                            <li><a href="index.html/sale/accesories/socks" alt="">Носки</a></li>
-                            <li><a href="index.html/sale/accesories/gloves" alt="">Перчатки</a></li>
-                            <li><a href="index.html/sale/accesories/hats" alt="">Шапки</a></li>
-                            <li><a href="index.html/sale/accesories/scarfs" alt="">Шарфы</a></li>
+                        <ul className="subSubCategory"><a id="subSubCategory" href="/sale/accesories" alt="">Аксессуары</a>
+                            <li><a href="/sale/accesories/underwear" alt="">Нижнее белье</a></li>
+                            <li><a href="/sale/accesories/socks" alt="">Носки</a></li>
+                            <li><a href="/sale/accesories/gloves" alt="">Перчатки</a></li>
+                            <li><a href="/sale/accesories/hats" alt="">Шапки</a></li>
+                            <li><a href="/sale/accesories/scarfs" alt="">Шарфы</a></li>
                           </ul>
                       </div>
                     </li>
                   </ul>
                 <div className="right">
                     <input id="searchInput" placeholder="Поиск" name="text" type="text"></input>
-                    <a href="index.html/checkout" alt=""><img src="/images/cart32x32.png" alt=""></img></a>
-                    <a href="index.html/profile" alt=""><img src="/images/profile32x32.png" alt=""></img></a> 
-                    
+                    <a href="/cart" alt=""><img src="/images/cart32x32.png" alt=""></img></a>
                 </div>
               </nav>
               </header>

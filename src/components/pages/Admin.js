@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
-import './Admin.css'
+import '../layout/Admin.css'
 
 class New extends Component {
   constructor(props) {
     super(props);
+    this.outputDB();
     this.state = {
         list: [],
     }
@@ -30,10 +31,6 @@ class New extends Component {
     document.getElementById('databaseDeleteProduct').hidden=false;
 }
 
-  componentDidMount() {
-    this.outputDB();
-  }
-
   render() {
     const {list} = this.state;
     console.log(list);
@@ -41,7 +38,7 @@ class New extends Component {
     <div>
         <Header />
         <div className="adminBody">
-            <div className="databaseOutput">
+            <div className="productsOutput">
               {list.map((item) => {
                 return (
                   <div key={item.code}>
