@@ -12,7 +12,7 @@ class New extends Component {
     }
 }
   outputDB = () => {
-      fetch('/api/outputDB')
+      fetch('/api/outputNew')
       .then(res => res.json())
       .then(list => this.setState({ list }))
 }
@@ -45,7 +45,7 @@ class New extends Component {
                   <h3>Артикул: {item.code}</h3>
                   <p>Дата: {item.date} | Название:{item.name} | Категория: {item.category} | Изображение: {item.image} | Пол: {item.gender} | Описание: {item.description} 
                   | Страна-производитель: {item.country} | Материал: {item.material} | Цена: {item.productprice} | XS: {item.xs} | S: {item.s} | M: {item.m}
-                  | L: {item.l} | XL: {item.xl} | XXL: {item.xxl}</p>
+                  | L: {item.l} | XL: {item.xl} | XXL: {item.xxl} | onSale: {JSON.stringify(item.onSale)}</p>
                   </div>
                 );
               })}
@@ -71,6 +71,7 @@ class New extends Component {
             <input placeholder="L" name="l" type="text"></input>
             <input placeholder="XL" name="xl" type="text"></input>
             <input placeholder="XXL" name="xxl" type="text"></input>
+            <input placeholder="onSale" name="onSale" type="text"></input>
             <input type="submit" value="Отправить" />
             </form>
 
@@ -93,6 +94,7 @@ class New extends Component {
             <option value="l">L</option>
             <option value="xl">XL</option>
             <option value="xxl">XXL</option>
+            <option value="onSale">onSale</option>
             </select>
             <button>Отправить</button>
             </form>

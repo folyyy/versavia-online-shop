@@ -8,7 +8,7 @@ class New extends Component {
     return (
     <div>
         <Header />
-        <CategoryBody />
+        <CategoryBody reqName="outputNew"/>
         <Footer />
     </div>
     );

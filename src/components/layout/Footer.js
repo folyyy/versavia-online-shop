@@ -6,8 +6,10 @@ export class Footer extends Component {
         <footer className="footer">
             <div className="newsletter">
                 <h2>Рассылка</h2>
-                <input id="newsletterInput" placeholder="Введите свой email адрес" name="text" type="text"></input><br></br>
-                <input id="newsletterInputButton" type="submit" value="Подписаться"></input>
+                <form action="/api/newsletterSub" method="post">
+                <input id="newsletterInput" name="email" type="text" placeholder="Введите свой email адрес" required></input><br></br>
+                <button id="newsletterInputButton">Подписаться</button>
+                </form>
             </div>
             <div className="support">
                 <h2>Помощь</h2>

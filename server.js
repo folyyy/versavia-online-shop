@@ -31,11 +31,11 @@ pool.on('error', (err, client) => {
   process.exit(-1)
 })
 
-// Sending database to client
-app.get('/api/outputDB', function(request,response) {
+// Sending "New" category to client
+app.get('/api/outputNew', function(request,response) {
     pool.connect((err, client, done) => {
         if (err) throw err
-        client.query(`SELECT * FROM "Products"`, (err, res) => {
+        client.query(`SELECT * FROM "Products" ORDER BY "date" DESC`, (err, res) => {
           done()
           if (err) {
             console.log(err.stack)
@@ -44,6 +44,51 @@ app.get('/api/outputDB', function(request,response) {
           }
         })
       }) 
+});
+
+// Sending "Men" category to client
+app.get('/api/outputMen', function(request,response) {
+  pool.connect((err, client, done) => {
+      if (err) throw err
+      client.query(`SELECT * FROM "Products" WHERE "gender" = 'Мужской'`, (err, res) => {
+        done()
+        if (err) {
+          console.log(err.stack)
+        } else {
+          response.send(res.rows);
+        }
+      })
+    }) 
+});
+
+// Sending "Women" category to client
+app.get('/api/outputWomen', function(request,response) {
+  pool.connect((err, client, done) => {
+      if (err) throw err
+      client.query(`SELECT * FROM "Products" WHERE "gender" = 'Женский'`, (err, res) => {
+        done()
+        if (err) {
+          console.log(err.stack)
+        } else {
+          response.send(res.rows);
+        }
+      })
+    }) 
+});
+
+// Sending "Sale" category to client
+app.get('/api/outputSale', function(request,response) {
+  pool.connect((err, client, done) => {
+      if (err) throw err
+      client.query(`SELECT * FROM "Products" WHERE "onSale"=true`, (err, res) => {
+        done()
+        if (err) {
+          console.log(err.stack)
+        } else {
+          response.send(res.rows);
+        }
+      })
+    }) 
 });
 
 // Adding new products
@@ -68,13 +113,14 @@ app.post('/api/addProduct', urlencodedParser, function (request, response) {
         m: request.body.m || 0,
         l: request.body.l || 0,
         xl: request.body.xl || 0,
-        xxl: request.body.xxl || 0 
+        xxl: request.body.xxl || 0,
+        onSale: request.body.onSale || false
     }
     pool.connect((err, client, done) => {
         if (err) throw err
-        client.query(`INSERT INTO "Products" VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16)`,[product.code, date, product.name, product.category,
+        client.query(`INSERT INTO "Products" VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17)`,[product.code, date, product.name, product.category,
             product.image, product.gender, product.description, product.country, product.material, product.xs, product.s, product.m, 
-            product.l, product.xl, product.xxl, product.price], (err) => {
+            product.l, product.xl, product.xxl, product.price, product.onSale], (err) => {
           done()
           if (err) {
             console.log(err.stack)
@@ -95,7 +141,7 @@ app.post('/api/updateProduct', urlencodedParser, function (req, res) {
     }
       pool.connect((err, client, done) => {
         if (err) throw err
-        client.query(`UPDATE "Products" SET ${req.body.param} = $1 WHERE code = $2`,[req.body.newValue, req.body.code], (err) => {
+        client.query(`UPDATE "Products" SET "${req.body.param}" = $1 WHERE code = $2`,[req.body.newValue, req.body.code], (err) => {
           done()
           if (err) {
             console.log(err.stack)
@@ -416,3 +462,37 @@ app.post('/api/deletePurchase', urlencodedParser, function (req, res) {
     }) 
   res.redirect('/admin/purchases');
 });
+
+// Adding a subscription to Newsletter
+app.post('/api/newsletterSub', urlencodedParser, function(request,response) {
+  pool.connect((err, client, done) => {
+    if (err) throw err
+    client.query(`INSERT INTO "Newsletter" VALUES($1)`,[request.body.email], (err, res) => {
+      done()
+      if (err) {
+        console.log(err.stack)
+        response.redirect('/home')
+      } else {
+        response.redirect('/home')
+        }
+    })
+  })
+});
+
+// Adding a promocode to user's cart
+// app.post('/api/addPromocode', urlencodedParser, function(request,response) {
+//   if (request.body.promocode === "secretplace1337") {
+//       pool.connect((err, client, done) => {
+//       if (err) throw err
+//       client.query(`UPDATE "Cart" SET "promocode" = $1 WHERE "userId" = $2`,[request.body.promocode, request.body.userId], (err, res) => {
+//         done()
+//         if (err) {
+//           console.log(err.stack)
+//           response.redirect('/cart')
+//         } else {
+//           response.redirect('/cart')
+//           }
+//       })
+//     })
+//   } else response.redirect('/cart')
+// });

@@ -5,14 +5,14 @@ import './CategoryBody.css'
 export class CategoryBody extends Component {
     constructor(props) {
         super(props);
-        this.outputDB();
+        this.outputDB(props.reqName);
         this.state = {
             list: [],
         }
     }
 
-    outputDB = () => {
-        fetch('/api/outputDB')
+    outputDB = (reqName) => {
+        fetch('/api/' + reqName)
         .then(res => res.json())
         .then(list => this.setState({ list }))
     }

@@ -154,16 +154,18 @@ export class Cart extends Component {
                         </table>
                         <div className="bottom">
                             <div className="promo">
-                                <p>
-                                    <input id="promoInput" placeholder="Введите промокод" name="text" type="text"></input>
-                                    <input id="promoSubmit" type="submit" value="Применить"></input>
-                                </p>
+                                    <p></p>
+                                    {/* <form action="/api/addPromocode" method="POST"> */}
+                                    <input id="promoInput" placeholder="Введите промокод" name="promocode" type="text"></input>
+                                    <input id="userId" name="userId" type="text" hidden></input>
+                                    <button id="promoSubmit">Применить</button>
+                                    {/* </form> */}
                             </div>
                             <div className="conc">
                                 <p>
                                     <span id="concText">Сумма к оплате</span>
                                     <span id="concSum">{sum} ₽</span>
-                                    <Link to={{pathname: `/checkout`, totalSum: sum}}><input id="checkoutButton" type="submit" value="Оформить заказ" onClick={() => {this.doCheckout()}}></input></Link>
+                                    <Link to={{pathname: `/checkout`, totalSum: sum}}><input id="checkoutButton" type="submit" value="Оформить заказ"></input></Link>
                                 </p>
                             </div>
                         </div>

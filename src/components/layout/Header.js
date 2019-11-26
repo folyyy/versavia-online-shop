@@ -101,7 +101,7 @@ export class Header extends Component {
                     </li>
                   </ul>
                 <div className="right">
-                    <input id="searchInput" placeholder="Поиск" name="text" type="text"></input>
+                    <input id="searchInput" placeholder="Поиск" name="text" type="text" hidden></input>
                     <a href="/cart" alt=""><img src="/images/cart32x32.png" alt=""></img></a>
                 </div>
               </nav>
