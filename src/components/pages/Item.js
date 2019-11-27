@@ -26,7 +26,6 @@ export class Item extends Component {
             },
             body: JSON.stringify(dataObject)
           });
-        this.props.history.push('/cart');
     }
 
     getData = () => {

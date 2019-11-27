@@ -27,6 +27,11 @@ export class App extends Component {
           <Route exact path='/checkout' component={Checkout}/>
           <Route exact path='/admin' component={Admin}/>
           <Route exact path='/admin/purchases' component={Purchases}/>
+          <Route
+                component={() => (
+                  <div style={{ padding: 20 }}>Page not found</div>
+                )}
+              />
           <App />
         </Switch>
       </div>

@@ -15,6 +15,26 @@ const pool = new Pool({
     connectionTimeoutMillis: 1000,
 })
 
+// Setting up nodemailer
+const nodemailer = require('nodemailer');
+var transport = {
+  service: process.env.MAIL_SERVICE,
+  auth: {
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS
+  }
+}
+
+var transporter = nodemailer.createTransport(transport)
+
+transporter.verify((error, success) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Nodemailer connected');
+  }
+});
+
 // Dependencies
 app.use(express.static('public'));
 app.use(express.static('src'));
@@ -496,3 +516,36 @@ app.post('/api/newsletterSub', urlencodedParser, function(request,response) {
 //     })
 //   } else response.redirect('/cart')
 // });
+
+
+// Sending email
+app.post('/api/sendEmail', urlencodedParser, function(request,response) {
+  const email = request.body.email
+  var message = ''
+  var subj = ''
+  if (request.body.param === 'cancel') {
+    message = 'Уважаемый покупатель, к сожалению ваш заказ был отменен.'
+    subj = "Отмена заказа"
+  } else if (request.body.param === 'submit') {
+    message = 'Спасибо за покупку на сайте Versavia. Мы рады подтвердить оформление заказа. После отправки заказа со склада мы вышлем вам уведомление на ваш электронный адрес.'
+    subj = "Подтверждение заказа"
+  } else if (request.body.param === 'send') {
+    message = 'Команда Versavia рада сообщить, что ваш заказ уже в пути. За час до доставки с вами свяжется курьер'
+    subj = "Ваш заказ поступил в службу доставки"
+  }
+
+  var mail = {
+    from: process.env.MAIL_USER,
+    to: email,  
+    subject: subj,
+    html: message
+  }
+
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      response.redirect('/admin/purchases')
+    } else {
+      response.redirect('/admin/purchases')
+    }
+  })
+});

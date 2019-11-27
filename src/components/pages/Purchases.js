@@ -27,6 +27,11 @@ export class Purchases extends Component {
         document.getElementById('databaseDeleteProduct').hidden=false;
     }
 
+       sendEmail() {
+        console.log("send email");
+        document.getElementById('databaseSendEmail').hidden=false;
+    }
+
 
 
     render() {
@@ -53,7 +58,8 @@ export class Purchases extends Component {
 
                     <input id="databaseUpdateProductButton" type="submit" value="Обновить данные в покупке" onClick={() => {this.updateProductMenu()} }></input>
                     <input id="databaseDeleteProductButton" type="submit" value="Удаить покупку" onClick={() => {this.deleteProductMenu()} }></input>
-    
+                    <input id="sendEmailButton" type="submit" value="Отправить уведомление" onClick={() => {this.sendEmail()} }></input>
+                        
                     <form action="/api/updatePurchase" method="POST" hidden id="databaseUpdateProduct">
                     <input placeholder="Введите ID покупки" name="code" type="text"></input>
                     <input placeholder="Введите новое значение" name="newValue" type="text"></input>
@@ -80,6 +86,16 @@ export class Purchases extends Component {
                     
                     <form action="/api/deletePurchase" method="POST" hidden id="databaseDeleteProduct">
                     <input placeholder="ID покупки" name="id" type="text"></input>
+                    <button>Отправить</button>
+                    </form>
+
+                    <form action="/api/sendEmail" method="POST" hidden id="databaseSendEmail">
+                    <input placeholder="Email клиента" name="email" type="text"></input>
+                    <select name="param">
+                    <option defaultValue value="cancel">Отменен</option>
+                    <option value="submit">Подтвержден</option>
+                    <option value="send">Отправлен</option>
+                    </select>
                     <button>Отправить</button>
                     </form>
                 </div>
