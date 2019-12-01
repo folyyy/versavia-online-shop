@@ -415,7 +415,7 @@ app.post('/api/doCheckout', urlencodedParser, async function (request, response)
                         response.redirect('/home')
                       } else {
                         console.log("Items deleted from cart");
-                        response.redirect('/cart')
+                        response.redirect('/successful')
                         }
                     })
                   })

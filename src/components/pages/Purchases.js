@@ -57,7 +57,7 @@ export class Purchases extends Component {
                     </div>
 
                     <input id="databaseUpdateProductButton" type="submit" value="Обновить данные в покупке" onClick={() => {this.updateProductMenu()} }></input>
-                    <input id="databaseDeleteProductButton" type="submit" value="Удаить покупку" onClick={() => {this.deleteProductMenu()} }></input>
+                    <input id="databaseDeleteProductButton" type="submit" value="Удалить покупку" onClick={() => {this.deleteProductMenu()} }></input>
                     <input id="sendEmailButton" type="submit" value="Отправить уведомление" onClick={() => {this.sendEmail()} }></input>
                         
                     <form action="/api/updatePurchase" method="POST" hidden id="databaseUpdateProduct">

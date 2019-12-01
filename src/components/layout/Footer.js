@@ -7,7 +7,7 @@ export class Footer extends Component {
             <div className="newsletter">
                 <h2>Рассылка</h2>
                 <form action="/api/newsletterSub" method="post">
-                <input id="newsletterInput" name="email" type="text" placeholder="Введите свой email адрес" required></input><br></br>
+                <input id="newsletterInput" name="email" type="text" placeholder="Введите свой email адрес" required onInvalid={(e) => {e.target.setCustomValidity("Это поле является обязательным")}} onInput={(e) => {e.target.setCustomValidity("")}}></input><br></br>
                 <button id="newsletterInputButton">Подписаться</button>
                 </form>
             </div>

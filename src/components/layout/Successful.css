@@ -1,0 +1,15 @@
+.successfullPage {
+    margin-top: 150px;
+    margin: auto;
+    width: 50%;
+}
+
+.successfullPage img {
+    /* background: black; */
+    width: 100%;
+}
+
+#hashtag {
+    color: transparent;
+    clear: both;
+}

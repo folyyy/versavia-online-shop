@@ -78,23 +78,23 @@ export class Cart extends Component {
                                 <h2>Адрес доставки</h2>
                                 <form action="/api/doCheckout" method="POST" id="doCheckout">
                                     <label htmlFor="firstName">Имя</label>
-                                    <input id="firstName" name="firstName" type="text" required></input>
+                                    <input id="firstName" name="firstName" type="text" required onInvalid={(e) => {e.target.setCustomValidity("Это поле является обязательным")}} onInput={(e) => {e.target.setCustomValidity("")}}></input>
                                     <label htmlFor="lastName">Фамилия</label>
-                                    <input id="lastName" name="lastName" type="text" required></input>
+                                    <input id="lastName" name="lastName" type="text" required onInvalid={(e) => {e.target.setCustomValidity("Это поле является обязательным")}} onInput={(e) => {e.target.setCustomValidity("")}}></input>
                                     <label htmlFor="phoneNumber">Телефон</label>
-                                    <input id="phoneNumber" name="phoneNumber" type="text" required></input>
+                                    <input id="phoneNumber" name="phoneNumber" type="text" required onInvalid={(e) => {e.target.setCustomValidity("Это поле является обязательным")}} onInput={(e) => {e.target.setCustomValidity("")}}></input>
                                     <label htmlFor="email">E-Mail</label>
-                                    <input id="email" name="email" type="text" required></input>
+                                    <input id="email" name="email" type="text" required onInvalid={(e) => {e.target.setCustomValidity("Это поле является обязательным")}} onInput={(e) => {e.target.setCustomValidity("")}}></input>
                                     <label htmlFor="city">Город</label>
-                                    <input id="city" name="city" type="text" required></input>
+                                    <input id="city" name="city" type="text" required onInvalid={(e) => {e.target.setCustomValidity("Это поле является обязательным")}} onInput={(e) => {e.target.setCustomValidity("")}}></input>
                                     <label htmlFor="address">Улица</label>
-                                    <input id="address" name="address" type="text" required></input>
+                                    <input id="address" name="address" type="text" required onInvalid={(e) => {e.target.setCustomValidity("Это поле является обязательным")}} onInput={(e) => {e.target.setCustomValidity("")}}></input>
                                     <label htmlFor="building">Дом</label>
-                                    <input id="building" name="building" type="text" required></input>
+                                    <input id="building" name="building" type="text" required onInvalid={(e) => {e.target.setCustomValidity("Это поле является обязательным")}} onInput={(e) => {e.target.setCustomValidity("")}}></input>
                                     <label htmlFor="housing">Корпус</label>
-                                    <input id="housing" name="housing" type="text" required></input>
+                                    <input id="housing" name="housing" type="text" required onInvalid={(e) => {e.target.setCustomValidity("Это поле является обязательным")}} onInput={(e) => {e.target.setCustomValidity("")}}></input>
                                     <label htmlFor="apartment">Квартира</label>
-                                    <input id="apartment" name="apartment" type="text" required></input>
+                                    <input id="apartment" name="apartment" type="text" required onInvalid={(e) => {e.target.setCustomValidity("Это поле является обязательным")}} onInput={(e) => {e.target.setCustomValidity("")}}></input>
                                     <input id="typeOfDelivery" name="deliveryType" type="text" hidden></input>
                                     <input id="endPrice" name="totalSum" type="text" hidden></input>
                                     <input id="userId" name="userId" type="text" hidden></input>

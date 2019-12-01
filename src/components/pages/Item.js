@@ -26,6 +26,8 @@ export class Item extends Component {
             },
             body: JSON.stringify(dataObject)
           });
+        document.getElementById("itemCartInput").style.color = "green"
+        document.getElementById("itemCartInput").value = "Добавлено"
     }
 
     getData = () => {
