@@ -11,10 +11,10 @@ class New extends Component {
         list: [],
     }
 }
-  outputDB = () => {
-      fetch('/api/outputNew')
-      .then(res => res.json())
-      .then(list => this.setState({ list }))
+  outputDB = async () => {
+      const response = await fetch('/api/outputNew')
+      const data = await response.json()
+      this.setState({list: data})
 }
 
   addProductMenu() {

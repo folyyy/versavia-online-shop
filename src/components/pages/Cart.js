@@ -1,110 +1,106 @@
 import React, { Component } from 'react'
-import Header from '../layout/Header';
-import Footer from '../layout/Footer';
+import Header from '../layout/Header'
+import Footer from '../layout/Footer'
 import '../layout/Cart.css'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import Cookies from 'js-cookie'
 
 export class Cart extends Component {
     constructor(props) {
-        super(props);
-        this.getData();
+        super(props)
+        this.getData()
         this.state = {
             item: [],
         }
     }
 
-    getData = () => {
-        let data = Cookies.get('_ga');
-        let dataObject = { data }
-        fetch('/api/getCartItems', {
-            method: 'post',
+    getData = async () => {
+        const data = Cookies.get('_ga')
+        const dataObject = { data }
+        const options = {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
             body: JSON.stringify(dataObject)
-          }).then(function(response) {
-            return response.json();
-          }).then(list => {
-              this.setState({ list })
-            })
+        }
+        const response = await fetch('/api/getCartItems', options)
+        const json = await response.json()
+        this.setState({list: json})
     }
 
-    decreaseQty(inputId) {
-        var quantity = document.getElementById(inputId).value;
+    decreaseQty = async (inputId) => {
+        var quantity = document.getElementById(inputId).value
         if (quantity <= 1) {
-            return;
+            return
         } else {
-        quantity--;
-        document.getElementById(inputId).value = quantity;
+            quantity--
+            document.getElementById(inputId).value = quantity
 
-        var data = this.state.list.find(item => item.id === inputId);
-        data.quantity = quantity;
-        var dataObject = { data }
-        fetch('/api/changeItemQty', {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(dataObject)
-          }).then(function(response) {
-            return response.json();
-          }).then(list => {
-            if (list.length === 0) {
-                window.location.reload();
-              } 
-        })
+            var data = this.state.list.find(item => item.id === inputId)
+            data.quantity = quantity
+            var dataObject = { data }
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(dataObject)
+            }
+            const response = await fetch('/api/changeItemQty', options)
+            const json = await response.json()
+            if (json.length === 0) {
+                window.location.reload()
+            }
     }
 }
 
-    increaseQty(inputId) {
-        var quantity = document.getElementById(inputId).value;
-        quantity++;
-        document.getElementById(inputId).value = quantity;
+    increaseQty = async (inputId) => {
+        var quantity = document.getElementById(inputId).value
+        quantity++
+        document.getElementById(inputId).value = quantity
 
-        var data = this.state.list.find(item => item.id === inputId);
-        data.quantity = quantity;
+        var data = this.state.list.find(item => item.id === inputId)
+        data.quantity = quantity
         var dataObject = { data }
-        fetch('/api/changeItemQty', {
-            method: 'post',
+        const options = {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
             body: JSON.stringify(dataObject)
-          }).then(function(response) {
-            return response.json();
-          }).then(list => {
-            if (list.length === 0) {
-                window.location.reload();
-              } 
-        })
+        }
+        const response = await fetch('/api/changeItemQty', options)
+        const json = await response.json()
+        if (json.length === 0) {
+            window.location.reload()
+        }
     }
 
-    cartItemDelete(inputId) {
-        var data = this.state.list.find(item => item.id === inputId);
+    cartItemDelete = async (inputId) => {
+        var data = this.state.list.find(item => item.id === inputId)
         var dataObject = { data }
-        fetch('/api/cartItemDelete', {
-            method: 'post',
+        const options = {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
             body: JSON.stringify(dataObject)
-          }).then(function(response) {
-            return response.json();
-          }).then(list => {
-            if (list.length === 0) {
-                window.location.reload();
-              }
-        })
+        }
+        const response = await fetch('/api/cartItemDelete', options)
+        const json = await response.json()
+        if (json.length === 0) {
+            window.location.reload()
+        }
     }
 
     render() {
-        var { list } = this.state;
-        var sum = 0;
+        var { list } = this.state
+        var sum = 0
         return (
             <div>
                 <Header />
@@ -120,7 +116,7 @@ export class Cart extends Component {
                             </thead>
                             { list ? ( 
                             list.map((item) => {
-                                sum = sum + parseFloat(item.price) * item.quantity;
+                                sum = sum + parseFloat(item.price) * item.quantity
                                 return(
                                 <tbody key={item.id}>
                                     <tr>
@@ -145,7 +141,7 @@ export class Cart extends Component {
                                     </td>
                                     </tr>
                                 </tbody>
-                                );
+                                )
                             })
                             ) : (
                                 <tbody></tbody>

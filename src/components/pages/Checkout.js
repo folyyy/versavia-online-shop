@@ -6,24 +6,24 @@ import Cookies from 'js-cookie'
 
 export class Cart extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             item: [],
             deliveryType: "none",
             currSum: this.props.location.totalSum,
             totalSum: this.props.location.totalSum
         }
-        this.handleClick = this.handleClick.bind(this);
+        this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount() {
         if (!this.state.totalSum) {
-            this.props.history.push('/cart');
+            this.props.history.push('/cart')
         }
     }
 
     async handleClick(oldType, newType) {
-        var deliveryPrice = 0;
+        var deliveryPrice = 0
         if (deliveryPrice === 0) {
             document.getElementById("deliveryAddress").style.display = "block"
             document.getElementById("steps").innerHTML = "Способ получения > Адрес доставки"

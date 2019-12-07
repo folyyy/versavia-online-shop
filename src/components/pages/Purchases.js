@@ -1,42 +1,43 @@
 import React, { Component } from 'react'
-import Header from '../layout/Header';
-import Footer from '../layout/Footer';
+import Header from '../layout/Header'
+import Footer from '../layout/Footer'
 import '../layout/Purchases.css'
 
 export class Purchases extends Component {
     constructor(props) {
-        super(props);
-        this.outputDB();
+        super(props)
+        this.outputDB()
         this.state = {
             list: [],
         }
     }
-      outputDB = () => {
-          fetch('/api/outputPurchasesDB')
-          .then(res => res.json())
-          .then(list => this.setState({ list }))
+
+    outputDB = async () => {
+          const response = await fetch('/api/outputPurchasesDB')
+          const data = await response.json()
+          this.setState({list: data})
+        //   .then(res => res.json())
+        //   .then(list => this.setState({ list }))
     }
 
-      updateProductMenu() {
-        console.log("update");
-        document.getElementById('databaseUpdateProduct').hidden=false;
+      updateProductMenu = () => {
+        console.log("update")
+        document.getElementById('databaseUpdateProduct').hidden=false
     }
     
-      deleteProductMenu() {
-        console.log("delete");
-        document.getElementById('databaseDeleteProduct').hidden=false;
+      deleteProductMenu = () => {
+        console.log("delete")
+        document.getElementById('databaseDeleteProduct').hidden=false
     }
 
-       sendEmail() {
-        console.log("send email");
-        document.getElementById('databaseSendEmail').hidden=false;
+       sendEmail = () => {
+        console.log("send email")
+        document.getElementById('databaseSendEmail').hidden=false
     }
-
-
 
     render() {
-        const {list} = this.state;
-        console.log(list);
+        const {list} = this.state
+        console.log(list)
         return (
         <div>
             <Header />
@@ -52,7 +53,7 @@ export class Purchases extends Component {
                         | dateOfDelivery: {item.dateOfDelivery}
                         </p>
                         </div>
-                        );
+                        )
                     })}
                     </div>
 

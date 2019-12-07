@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import Header from '../layout/Header';
-import Footer from '../layout/Footer';
-import '../layout/Item.css';
+import Header from '../layout/Header'
+import Footer from '../layout/Footer'
+import '../layout/Item.css'
 import Cookies from 'js-cookie'
 
 export class Item extends Component {
     constructor(props) {
-        super(props);
-        this.getData();
+        super(props)
+        this.getData()
         this.state = {
             list: [],
             userId: Cookies.get('_ga'),
@@ -15,9 +15,9 @@ export class Item extends Component {
         }
     }
 
-    addToCart() {
-        let data = this.state;
-        let dataObject = { data };
+    addToCart = () => {
+        let data = this.state
+        let dataObject = { data }
         fetch('/api/addToCartDb', {
             method: 'post',
             headers: {
@@ -25,34 +25,33 @@ export class Item extends Component {
                 'Accept': 'application/json'
             },
             body: JSON.stringify(dataObject)
-          });
+          })
         document.getElementById("itemCartInput").style.color = "green"
         document.getElementById("itemCartInput").value = "Добавлено"
     }
 
-    getData = () => {
-        let data = this.props.match.params.id;
-        let dataObject = { data };
-        fetch('/api/getProductById', {
-            method: 'post',
+    getData = async () => {
+        let data = this.props.match.params.id
+        let dataObject = { data }
+        const options = {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
             body: JSON.stringify(dataObject)
-          }).then(function(response) {
-            return response.json();
-          }).then(list => {
-              if (list.length === 0) {
-                this.props.history.push('/home')
-              } else {
-              this.setState({ list })
-              }
-            })
+        }
+        const response = await fetch('/api/getProductById', options)
+        const json = await response.json()
+        if (json.length === 0) {
+            this.props.history.push('/home')
+        } else {
+            this.setState({list: json})
+        }
     } 
 
     render() {
-        var { list } = this.state;
+        var { list } = this.state
         return (
             <div>
                 <Header />
@@ -80,7 +79,7 @@ export class Item extends Component {
                                 <input id="itemCartInput" type="submit" value="Добавить в корзину" onClick={() => {this.addToCart()}}></input>
                             </div> 
                         </div>
-                        );
+                        )
                     })}
                         <p id="hashtag">#</p>
                     </div>

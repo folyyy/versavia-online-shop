@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Header from '../layout/Header';
-import Footer from '../layout/Footer';
-import '../layout/Successful.css';
+import Header from '../layout/Header'
+import Footer from '../layout/Footer'
+import '../layout/Successful.css'
 
 export class Successful extends Component {
     render() {
