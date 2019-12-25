@@ -500,22 +500,22 @@ app.post('/api/newsletterSub', urlencodedParser, function(request,response) {
 });
 
 // Adding a promocode to user's cart
-// app.post('/api/addPromocode', urlencodedParser, function(request,response) {
-//   if (request.body.promocode === "secretplace1337") {
-//       pool.connect((err, client, done) => {
-//       if (err) throw err
-//       client.query(`UPDATE "Cart" SET "promocode" = $1 WHERE "userId" = $2`,[request.body.promocode, request.body.userId], (err, res) => {
-//         done()
-//         if (err) {
-//           console.log(err.stack)
-//           response.redirect('/cart')
-//         } else {
-//           response.redirect('/cart')
-//           }
-//       })
-//     })
-//   } else response.redirect('/cart')
-// });
+app.post('/api/addPromocode', urlencodedParser, function(request,response) {
+  if (request.body.promocode === "secretplace1337") {
+      pool.connect((err, client, done) => {
+      if (err) throw err
+      client.query(`UPDATE "Cart" SET "promocode" = 500 WHERE "userId" = $1`,[request.body.userId], (err, res) => {
+        done()
+        if (err) {
+          console.log(err.stack)
+          response.redirect('/cart')
+        } else {
+          response.redirect('/cart')
+          }
+      })
+    })
+  } else response.redirect('/cart')
+});
 
 
 // Sending email

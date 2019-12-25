@@ -11,6 +11,7 @@ export class Cart extends Component {
         this.getData()
         this.state = {
             item: [],
+            cookie: Cookies.get('_ga')
         }
     }
 
@@ -116,7 +117,7 @@ export class Cart extends Component {
                             </thead>
                             { list ? ( 
                             list.map((item) => {
-                                sum = sum + parseFloat(item.price) * item.quantity
+                                sum = (sum + parseFloat(item.price) * item.quantity) - item.promocode
                                 return(
                                 <tbody key={item.id}>
                                     <tr>
@@ -151,11 +152,11 @@ export class Cart extends Component {
                         <div className="bottom">
                             <div className="promo">
                                     <p></p>
-                                    {/* <form action="/api/addPromocode" method="POST"> */}
+                                    <form action="/api/addPromocode" method="POST">
                                     <input id="promoInput" placeholder="Введите промокод" name="promocode" type="text"></input>
-                                    <input id="userId" name="userId" type="text" hidden></input>
+                                    <input id="userId" name="userId" type="text" value={this.state.cookie} readOnly hidden></input>
                                     <button id="promoSubmit">Применить</button>
-                                    {/* </form> */}
+                                    </form>
                             </div>
                             <div className="conc">
                                 <p>
